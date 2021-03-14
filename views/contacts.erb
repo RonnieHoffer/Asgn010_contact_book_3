@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+</head>
+
+<body>
+    <h1>Contact List</h1>
+    <ul>
+        <% @contacts.each do |contact| %>
+            <li>
+                <a href="/editContact?contactID=<%=contact.id%>"> Edit </a>
+                <a href="/deleteContact?contactID=<%=contact.id%>"> Delete </a>
+                <%= contact.first_name %>,
+                <%= contact.last_name %>,
+                <%= contact.email %>,
+                <%= contact.note %>
+            </li>
+        <% end %>
+    </ul>
+
+    <hr/>
+
+    <a href="/addContact">Add new contact</a>
+    <br/>
+    <a href="/deleteAllContacts">Delete all contacts</a>
+
+</body>
+</html>
